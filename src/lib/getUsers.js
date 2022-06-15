@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { uniqWith, isEqual } = require('lodash');
 
 async function restRouteMethod(url) {
   try {
@@ -59,7 +60,7 @@ async function getUsers(url) {
   const userJson = await userJsonMethod(url);
   const authors = await authorsMethod(url);
   const users = restRoute.concat(userJson).concat(authors);
-  return users;
+  return users.length > 0 ? uniqWith(users, isEqual) : users;
 }
 
 module.exports = getUsers;
