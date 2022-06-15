@@ -1,6 +1,11 @@
 # WORDPRESS-CHECK - NODEJS
 
-Package that checks common information disclosure on wordpress websites.
+Package that checks common information disclosure on wordpress websites :
+
+- WordPress version
+- Active theme and theme version
+- User enumeration
+- Directory indexing
 
 ## INSTALL
 
@@ -32,6 +37,10 @@ Package that checks common information disclosure on wordpress websites.
             {"id":3,"name":"ringo"},
             {"id":4,"name":"paul"}
         ],
+        "theme":{
+            "name":"avada",
+            "version":"5.5.2"
+        },
         "directoryIndexing":[
             "wp-content/uploads/"
         ]
