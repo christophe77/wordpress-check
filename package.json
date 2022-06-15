@@ -1,0 +1,36 @@
+{
+  "name": "wordpress-check",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "keywords": [
+    "wordpress",
+    "nodejs",
+    "scanner",
+    "check"
+  ],
+  "exports": {
+    "require": "./src/index.js"
+  },
+  "author": "christophe bellec",
+  "license": "MIT",
+  "homepage": "https://github.com/christophe77/wordpress-check",
+  "engines": {
+    "node": "12.x || 14.x || >= 16"
+  },
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.11",
+    "xml2js": "^0.4.23"
+  }
+}
