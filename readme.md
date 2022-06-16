@@ -41,7 +41,9 @@ Package that checks common information disclosure on wordpress websites :
 
 ## CLI USAGE
 
-    npx wpcheck https://your-wordpress-website.com/
+    npx wpcheck scan https://your-wordpress-website.com/
+    // Or with -s option to save a local file
+    npx wpcheck scan https://your-wordpress-website.com/ -s
 
 ## RESULTS
 
