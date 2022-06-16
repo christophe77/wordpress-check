@@ -9,20 +9,18 @@ async function getPlugins(url) {
     const response = await axios.get(url);
     const sourceCode = response.data;
     const $ = cheerio.load(sourceCode);
-    const scripts = $('script');
-
-    for (let i = 0; i < scripts.length; i += 1) {
-      try {
-        const src = scripts[i].attribs.src.toLowerCase();
-        if (src.includes('wp-content/plugins/')) {
-          const name = getStringBetween('plugins/', '/', src);
-          const version = src.split('=')[1];
-          plugins.push({ name, version });
-        }
-      } catch {
-        //
+    $('link[rel="stylesheet"]').each((_index, tag) => {
+      const content = tag.attribs.href.toLowerCase();
+      if (content.includes('wp-content/plugins/')) {
+        const name = getStringBetween('plugins/', '/', content);
+        const version = content.split('=')[1];
+        plugins.push({
+          name,
+          version,
+        });
       }
-    }
+    });
+
     return plugins.length > 0 ? uniqWith(plugins, isEqual) : plugins;
   } catch {
     return plugins;

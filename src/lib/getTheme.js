@@ -15,7 +15,7 @@ async function getTheme(url) {
     $('link[rel="stylesheet"]').each((_index, tag) => {
       const content = tag.attribs.href.toLowerCase();
       if (content.includes('wp-content/themes/')) {
-        const name = getStringBetween('themes/', '/assets', content);
+        const name = getStringBetween('themes/', '/', content);
         const version = content.split('=')[1];
         theme.name = name;
         theme.version = version;

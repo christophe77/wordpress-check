@@ -5,6 +5,8 @@ Package that checks common information disclosure on wordpress websites :
 - WordPress version
 - Active theme and theme version
 - User enumeration
+- Plugin enumeration
+- Generator enumeration
 - Directory indexing
 
 ## INSTALL
@@ -22,7 +24,14 @@ Package that checks common information disclosure on wordpress websites :
         console.log(results);
     }
 
+    async function checkUrlAndSaveReport(url) {
+        const results = await wpCheck(url, true);
+        console.log(results);
+        // file saved inside root path /reports
+    }
+
     checkUrl("https://your-wordpress-website.com/");
+    checkUrlAndSaveReport("https://your-wordpress-website.com/");
 
 ### RESULTS
 
@@ -41,6 +50,20 @@ Package that checks common information disclosure on wordpress websites :
             "name":"avada",
             "version":"5.5.2"
         },
+         "plugins":[
+            {
+                "name":"plugin1",
+                "version":"5.5.2"
+            },
+            {
+                "name":"plugin2",
+                "version":"5.5.2"
+            }
+        ],
+        "generators": [
+            "powered by layerslider 6.7.6",
+            "powered by slider revolution 5.4.7.4"
+        ],
         "directoryIndexing":[
             "wp-content/uploads/"
         ]
