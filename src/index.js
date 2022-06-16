@@ -1,6 +1,6 @@
 const getVersion = require('./lib/getVersion');
 const getUsers = require('./lib/getUsers');
-const getTheme = require('./lib/getTheme');
+const getThemes = require('./lib/getThemes');
 const getPlugins = require('./lib/getPlugins');
 const getGenerators = require('./lib/getGenerators');
 const checkDirectoryIndexing = require('./lib/checkDirectoryIndexing');
@@ -8,18 +8,18 @@ const saveReport = require('./lib/saveReport');
 
 async function wpCheck(url, save) {
   const targetUrl = url.slice(-1) === '/' ? url : `${url}/`;
-  const [version, users, theme, plugins, generators, directoryIndexing] =
+  const [version, users, themes, plugins, generators, directoryIndexing] =
     await Promise.all([
       getVersion(targetUrl),
       getUsers(targetUrl),
-      getTheme(targetUrl),
+      getThemes(targetUrl),
       getPlugins(targetUrl),
       getGenerators(targetUrl),
       checkDirectoryIndexing(targetUrl),
     ]);
   const report = {
     version,
-    theme,
+    themes,
     plugins,
     generators,
     users,

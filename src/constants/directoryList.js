@@ -1,4 +1,5 @@
 const directoryList = [
+  'wp-includes/',
   'wp-content/',
   'wp-content/uploads/',
   'wp-content/plugins/',

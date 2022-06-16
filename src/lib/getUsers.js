@@ -1,5 +1,7 @@
 const axios = require('axios');
 const { uniqWith, isEqual } = require('lodash');
+const cheerio = require('cheerio');
+const getStringBetween = require('../utils/getStringBetween');
 
 async function restRouteMethod(url) {
   try {
@@ -37,11 +39,21 @@ async function authorsMethod(url) {
       try {
         const response = await axios.get(`${url}?author=${authorId}`);
         const responsePath = response.request.path;
-        if (responsePath?.includes('author')) {
-          const authorName = responsePath.split('/')[2];
+        if (responsePath?.includes('author/')) {
+          const authorName = getStringBetween('author/', '/', responsePath);
           authors.push({
             id: authorId,
-            name: authorName,
+            name: authorName || '',
+          });
+        } else if (response.data) {
+          // check Yoast SEO plugin
+          const sourceCode = response.data;
+          const $ = cheerio.load(sourceCode);
+          const authorUrl = $('meta[property="og:url"]')[0].attribs.content;
+          const authorName = getStringBetween('author/', '/', authorUrl);
+          authors.push({
+            id: authorId,
+            name: authorName || '',
           });
         } else {
           break;

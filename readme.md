@@ -46,11 +46,13 @@ Package that checks common information disclosure on wordpress websites :
             {"id":3,"name":"ringo"},
             {"id":4,"name":"paul"}
         ],
-        "theme":{
-            "name":"avada",
-            "version":"5.5.2"
-        },
-         "plugins":[
+        "themes":[
+            {
+                "name":"avada",
+                "version":"5.5.2"
+            }
+        ],
+        "plugins":[
             {
                 "name":"plugin1",
                 "version":"5.5.2"
