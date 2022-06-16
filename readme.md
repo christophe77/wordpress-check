@@ -11,11 +11,17 @@ Package that checks common information disclosure on wordpress websites :
 
 ## INSTALL
 
+### Module
+
     yarn add wordpress-check
     // or
     npm install wordpress-check
 
-## USAGE
+### CLI
+
+    npm install wordpress-check -g
+
+## MODULE USAGE
 
     const wpCheck = require('wordpress-check');
 
@@ -33,7 +39,11 @@ Package that checks common information disclosure on wordpress websites :
     checkUrl("https://your-wordpress-website.com/");
     checkUrlAndSaveReport("https://your-wordpress-website.com/");
 
-### RESULTS
+## CLI USAGE
+
+    npx wpcheck https://your-wordpress-website.com/
+
+## RESULTS
 
     {
         "version":[
