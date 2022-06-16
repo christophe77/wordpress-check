@@ -25,9 +25,10 @@ async function wpCheck(url, save) {
     users,
     directoryIndexing,
   };
-  if (save) {
+  if (save === true) {
     saveReport(report, targetUrl);
   }
   return report;
 }
+
 module.exports = wpCheck;

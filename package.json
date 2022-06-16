@@ -1,6 +1,6 @@
 {
   "name": "wordpress-check",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./src/index.js",
   "keywords": [
     "wordpress",
@@ -14,6 +14,9 @@
   ],
   "exports": {
     "require": "./src/index.js"
+  },
+  "bin": {
+    "wpcheck": "./src/cli.js"
   },
   "author": "christophe bellec",
   "license": "MIT",
@@ -35,6 +38,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.11",
+    "commander": "^9.3.0",
     "lodash": "^4.17.21",
     "xml2js": "^0.4.23"
   }
